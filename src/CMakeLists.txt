@@ -5,6 +5,14 @@ add_executable(
 
   main.cpp
 )
+
+
+add_library(
+    main
+    SHARED
+    main.cpp
+)
+
 target_link_libraries(
   main
 

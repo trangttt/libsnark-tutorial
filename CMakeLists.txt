@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.4)
 
 project(libsnark-tutorial)
 
@@ -82,6 +82,20 @@ else()
 endif()
 
 include_directories(.)
+
+FUNCTION(ADD_LIBRARY)
+    _ADD_LIBRARY(${ARGN})
+    IF(ARGV0 STREQUAL "zm")
+        SET_TARGET_PROPERTIES(${ARGV0} PROPERTIES POSITION_INDEPENDENT_CODE ON)
+    ENDIF()
+    IF(ARGV0 STREQUAL "ff")
+        SET_TARGET_PROPERTIES(${ARGV0} PROPERTIES POSITION_INDEPENDENT_CODE ON)
+    ENDIF()
+    IF(ARGV0 STREQUAL "snark")
+        SET_TARGET_PROPERTIES(${ARGV0} PROPERTIES POSITION_INDEPENDENT_CODE ON)
+    ENDIF()
+
+ENDFUNCTION()
 
 add_subdirectory(depends)
 add_subdirectory(src)

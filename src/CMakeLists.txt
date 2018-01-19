@@ -8,7 +8,7 @@ add_executable(
 
 
 add_library(
-    main
+    mainlib
     SHARED
     main.cpp
 )
